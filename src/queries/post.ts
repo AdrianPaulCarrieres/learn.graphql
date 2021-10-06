@@ -30,8 +30,8 @@ const QueryCreatePost = mutationField('createPost', {
 
 const QueryPosts = queryField('posts', {
     type: list(Post),
-    resolve(_root, _args, ctx) {
-        return ctx.db.post.findMany({ include: { author: true } })
+    async resolve(_root, _args, ctx) {
+        return await ctx.db.post.findMany({ include: { author: true } })
     }
 })
 

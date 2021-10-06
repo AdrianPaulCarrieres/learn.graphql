@@ -5,8 +5,8 @@ const QueryUsers = queryField('users', {
     type: list(User),
     args: {
     },
-    resolve(_root, _args, ctx) {
-        return ctx.db.user.findMany()
+    async resolve(_root, _args, ctx) {
+        return await ctx.db.user.findMany()
     }
 })
 
@@ -18,7 +18,7 @@ const QueryRegister = mutationField('register', {
         firstName: stringArg(),
         lastName: stringArg()
     },
-    resolve(_root, args, ctx) {
+    async resolve(_root, args, ctx) {
         console.table(args)
         const user = {
             email: args.email,
@@ -27,7 +27,7 @@ const QueryRegister = mutationField('register', {
             lastName: args.lastName
         }
 
-        return ctx.db.user.create({ data: user })
+        return await ctx.db.user.create({ data: user })
     },
 })
 
