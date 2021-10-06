@@ -10,6 +10,7 @@
   "author": "AdrianPaulCarrières",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^3.2.0",
     "apollo-server": "^3.3.0",
     "graphql": "^15.6.1",
     "nexus": "^1.1.0"
@@ -18,6 +19,7 @@
     "@types/express": "^4.17.13",
     "@types/node": "^16.10.3",
     "nodemon": "^2.0.13",
+    "prisma": "^3.2.0",
     "typescript": "^4.4.3"
   }
 }
