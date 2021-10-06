@@ -1,1 +1,2 @@
-export {QueryUsers, QueryRegister} from './user'
+export * from './user'
+export * from './post'

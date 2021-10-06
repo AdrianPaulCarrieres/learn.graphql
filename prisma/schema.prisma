@@ -13,8 +13,8 @@ generator client {
 model Post {
   id        Int    @id @default(autoincrement())
   content   String
-  createdAt String
-  updatedAt String
+  //createdAt String
+  //updatedAt String
 
   authorId Int
   author   User @relation(fields: [authorId], references: [id])
@@ -27,13 +27,10 @@ model Post {
 model User {
   id Int @id @default(autoincrement())
 
-  email     String
+  email     String @unique
   password  String
   firstName String
   lastName  String
 
   posts Post[]
 }
-
-
-//TODO migrate and all

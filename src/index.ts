@@ -1,12 +1,12 @@
 import { makeSchema } from "nexus";
 import { User, Post } from "./models";
-import { QueryRegister, QueryUsers } from "./queries";
+import * as queries from "./queries";
 import { context } from "./database/context";
 
 const { ApolloServer } = require('apollo-server');
 
 const schema = makeSchema({
-  types: [User, Post, QueryUsers, QueryRegister]
+  types: queries
 })
 
 const server = new ApolloServer({ schema, context });
