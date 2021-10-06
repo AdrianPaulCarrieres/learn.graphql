@@ -9,3 +9,14 @@ datasource db {
 generator client {
   provider = "prisma-client-js"
 }
+
+model Post {
+  id        Int    @id @default(autoincrement())
+  content   String
+  createdAt String
+  updatedAt String
+
+  postId   Int?
+  post     Post?  @relation("PostComments", fields: [postId], references: [id])
+  comments Post[] @relation("PostComments")
+}
