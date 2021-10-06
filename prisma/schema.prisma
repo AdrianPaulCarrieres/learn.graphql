@@ -34,3 +34,6 @@ model User {
 
   posts Post[]
 }
+
+
+//TODO migrate and all
