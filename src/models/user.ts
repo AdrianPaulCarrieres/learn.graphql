@@ -6,4 +6,4 @@ type User = {
     lastName: string;
 };
 
-export {User};
+export { User };
