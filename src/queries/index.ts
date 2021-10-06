@@ -1,1 +1,1 @@
-export {QueriesUser} from './user'
+export {QueryUsers, QueryRegister} from './user'

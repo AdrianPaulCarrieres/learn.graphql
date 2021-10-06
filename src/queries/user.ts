@@ -1,7 +1,9 @@
-import { list, queryType } from "nexus";
+import { argsToArgsConfig } from "graphql/type/definition";
+import { arg, extendType, list, mutationField, queryType, stringArg } from "nexus";
+import { type } from "os";
 import { User } from "../models";
 
-const QueriesUser = queryType({
+const QueryUsers = queryType({
     definition(t) {
         t.field('users', {
             type: list(User)
@@ -9,4 +11,17 @@ const QueriesUser = queryType({
     }
 })
 
-export {QueriesUser}
+const QueryRegister = mutationField('register', {
+    type: User,
+    args: {
+        email: stringArg(),
+        password: stringArg(),
+        firstName: stringArg(),
+        lastName: stringArg()
+    },
+    resolve(_root, args, ctx) {
+        console.table(args)
+    },
+  })
+
+export {QueryUsers, QueryRegister}
