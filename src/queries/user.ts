@@ -1,13 +1,11 @@
-import { argsToArgsConfig } from "graphql/type/definition";
-import { arg, extendType, list, mutationField, nonNull, queryField, queryType, stringArg } from "nexus";
-import { type } from "os";
+import { list, mutationField, queryField, stringArg } from "nexus";
 import { User } from "../models";
 
 const QueryUsers = queryField('users', {
     type: list(User),
     args: {
     },
-    resolve(_root, _args, ctx){
+    resolve(_root, _args, ctx) {
         return ctx.db.user.findMany()
     }
 })
@@ -29,8 +27,8 @@ const QueryRegister = mutationField('register', {
             lastName: args.lastName
         }
 
-        return ctx.db.user.create({data: user})
+        return ctx.db.user.create({ data: user })
     },
-  })
+})
 
-export {QueryUsers, QueryRegister}
+export { QueryUsers, QueryRegister }
