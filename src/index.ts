@@ -1,14 +1,15 @@
 import { makeSchema } from "nexus";
 import { User, Post } from "./models";
 import { QueryRegister, QueryUsers } from "./queries";
+import { context } from "./database/context";
 
-const { ApolloServer} = require('apollo-server');
+const { ApolloServer } = require('apollo-server');
 
 const schema = makeSchema({
-    types: [User, Post, QueryUsers, QueryRegister]
+  types: [User, Post, QueryUsers, QueryRegister]
 })
 
-const server = new ApolloServer({ schema });
+const server = new ApolloServer({ schema, context });
 
 // The `listen` method launches a web server.
 server.listen().then(({ }): any => {

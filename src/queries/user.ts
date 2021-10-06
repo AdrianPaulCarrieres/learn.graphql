@@ -21,6 +21,14 @@ const QueryRegister = mutationField('register', {
     },
     resolve(_root, args, ctx) {
         console.table(args)
+        const user = {
+            email: args.email,
+            password: args.password,
+            firstName: args.firstName,
+            lastName: args.lastName
+        }
+
+        return ctx.db.user.create({data: user})
     },
   })
 
