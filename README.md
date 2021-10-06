@@ -1,0 +1,1 @@
+Run with nodemon app.ts

@@ -10,12 +10,12 @@ import {
     list,
 } from 'nexus'
 
-import { Node, User } from '.'
+import { User } from '.'
 
 const Post = objectType({
     name: 'Post',
     definition(t) {
-        t.implements(Node)
+        t.id('id', { description: 'Unique identifier for the resource' })
         t.field('author', {
             type: User
         })

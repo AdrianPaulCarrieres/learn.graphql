@@ -1,12 +1,16 @@
 import { makeSchema } from "nexus";
-import { User, Node, Post } from "./models";
+import { User, Post } from "./models";
+import { QueriesUser } from "./queries";
 
 const { ApolloServer} = require('apollo-server');
 
 const schema = makeSchema({
-    types: [User, Node, Post]
+    types: [User, Post, QueriesUser]
 })
 
-const server = new ApolloServer({schema})
+const server = new ApolloServer({ schema });
 
-server.listen(() => `Server is running on http://localhost:4000`)
+// The `listen` method launches a web server.
+server.listen().then(({ }): any => {
+  console.log(`🚀  Server ready at http://localhost:4000`);
+});

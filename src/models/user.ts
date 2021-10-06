@@ -10,15 +10,13 @@ import {
     list,
 } from 'nexus'
 
-import { Node } from '.'
-
 const User = objectType({
     name: 'User',
     isTypeOf(source) {
         return 'email' in source
     },
     definition(t) {
-        t.implements(Node)
+        t.id('id', { description: 'Unique identifier for the resource' })
         t.string('email')
         t.string('password')
         t.string('firstName')
